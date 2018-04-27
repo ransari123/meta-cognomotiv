@@ -1,0 +1,24 @@
+#! /bin/sh -e
+
+test -x /usr/bin/collector || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting Datapond daemon: "
+        start-stop-daemon -o -S -x /usr/bin/datapond
+    fi
+    ;;
+  stop)
+    echo -n "Stopping Datapond daemon: "
+    start-stop-daemon -o -K -x /usr/bin/datapond
+    ;;
+  restart|force-reload) 
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/datapond {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

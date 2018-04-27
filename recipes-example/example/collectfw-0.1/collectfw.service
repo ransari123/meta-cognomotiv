@@ -1,0 +1,10 @@
+[Unit]
+Description=Data collector daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/collector
+
+[Install]
+WantedBy=multi-user.target
+

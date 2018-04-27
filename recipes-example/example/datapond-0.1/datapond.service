@@ -1,0 +1,10 @@
+[Unit]
+Description=Datapond daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/datapond
+
+[Install]
+WantedBy=multi-user.target
+

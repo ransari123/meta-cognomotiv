@@ -1,0 +1,27 @@
+From 2f6c3a6228ae935b53890710044d60dd2edb03e1 Mon Sep 17 00:00:00 2001
+From: Rizwan Ansari <rizwan@celetialsys.com>
+Date: Wed, 25 Apr 2018 09:48:17 +0530
+Subject: [PATCH] Change the plugin directory to
+ /opt/cognomotiv/pipeline/collector
+
+---
+ src/collector.cc | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/collector.cc b/src/collector.cc
+index d4cbc57..3835135 100644
+--- a/src/collector.cc
++++ b/src/collector.cc
+@@ -74,7 +74,8 @@ int main(int argc, char** argv) {
+ 
+     // Prepare Collector Plug-in
+     collector_plugin_t *plugins;
+-    int num_plugins = prepare_plugins("plugin", &plugins);
++    //int num_plugins = prepare_plugins("plugin", &plugins);
++    int num_plugins = prepare_plugins("/opt/cognomotiv/pipeline/collector/plugin", &plugins);
+ 
+     // Initialize Collector Plug-in Manager
+     manager = new CollectorPluginManager();
+-- 
+2.7.4
+

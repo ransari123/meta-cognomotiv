@@ -1,0 +1,24 @@
+#! /bin/sh -e
+
+test -x /usr/bin/collector || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting Data Collector Framework daemon: "
+        start-stop-daemon -o -S -x /usr/bin/collector
+    fi
+    ;;
+  stop)
+    echo -n "Stopping Data Collector Framework daemon: "
+    start-stop-daemon -o -K -x /usr/bin/collector
+    ;;
+  restart|force-reload) 
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/collector {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0
